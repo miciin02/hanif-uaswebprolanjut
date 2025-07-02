@@ -25,15 +25,7 @@ class SurveyController extends Controller
     
         return view('surveys.index', compact('surveys'));
 
-    
-        $sort = $request->input('sort', 'created_at');
-        $order = $request->input('order', 'desc');
 
-        $surveys = Survey::with(['dataRumah', 'dataKeluarga', 'dataPekerjaanPendapatan', 'dataKendaraan', 'skor'])
-                        ->orderBy($sort, $order)
-                        ->get();
-
-        return view('surveys.index', compact('surveys'));
     }
 
 
